@@ -8,11 +8,14 @@ import { DiretivaComponent } from './diretiva/diretiva.component';
 import { ClientesComponent } from './clientes/clientes.component';
 import {RouterModule, Routes} from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
+import { FormComponent } from './clientes/form.component';
+import { FormsModule } from '@angular/forms'
 
 const routes: Routes = [
   {path: '', redirectTo: '/clientes', pathMatch: 'full'},
   {path: 'diretivas', component: DiretivaComponent},
-  {path: 'clientes', component: ClientesComponent}
+  {path: 'clientes', component: ClientesComponent},
+  {path: 'clientes/form', component: FormComponent}
 ]
 
 @NgModule({
@@ -21,12 +24,14 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     DiretivaComponent,
-    ClientesComponent
+    ClientesComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
