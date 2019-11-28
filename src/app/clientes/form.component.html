@@ -2,7 +2,7 @@
   <div class="card-header">{{ titulo }}</div>
   <div class="card-body">
 
-    <form (ngSubmit)="create()">
+    <form>
       <div class="form-group">
         <label for="nome">Nome</label>
         <input type="text" class="form-control col-sm-6" [(ngModel)]="cliente.nome" name="nome">
@@ -18,8 +18,16 @@
         <input type="text" class="form-control col-sm-6" [(ngModel)]="cliente.email" name="email">
       </div>
 
-      <button class="btn btn-primary col-sm-4" role="button">Criar</button>
+      <button
+        (click)="create()"
+        *ngIf="!cliente.id else elseBlock"
+        class="btn btn-primary col-sm-4" role="button">Criar</button>
 
+        <ng-template #elseBlock>
+            <button
+            (click)="update()"
+            class="btn btn-primary col-sm-4" role="button">Editar</button>
+        </ng-template>
     </form>
   </div>
 </div>
