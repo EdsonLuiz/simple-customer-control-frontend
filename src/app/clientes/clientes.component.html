@@ -21,6 +21,7 @@
             <th>Email</th>
             <th>Criado em</th>
             <th>Editar</th>
+            <th>Deletar</th>
           </tr>
         </thead>
         <tbody>
@@ -30,7 +31,8 @@
             <td>{{cliente.sobrenome}}</td>
             <td>{{cliente.email}}</td>
             <td>{{cliente.createdAt}}</td>
-            <td><button class="btn btn-primary" [routerLink]="['/clientes/form', cliente.id]">Editar</button></td>
+            <td><button class="btn btn-primary btn-sm" [routerLink]="['/clientes/form', cliente.id]">Editar</button></td>
+            <td><button class="btn btn-danger btn-sm" (click)="delete(cliente)">Apagar</button></td>
           </tr>
         </tbody>
       </table>
